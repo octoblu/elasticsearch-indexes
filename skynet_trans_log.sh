@@ -1,11 +1,11 @@
-curl -XPUT http://localhost:9200/skynet_trans_log_v2 -d '{
+curl -XPUT http://localhost:9200/skynet_trans_log_v1 -d '{
   "mappings": {
     "info": {
       "properties": {
         "@fields": {
           "properties": {
             "topic" : {
-              "type": "multi_field",
+              "type": "string",
               "fields": {
                 "raw" : {
                   "type": "string",
@@ -14,7 +14,7 @@ curl -XPUT http://localhost:9200/skynet_trans_log_v2 -d '{
               }
             },
             "fromUuid" : {
-              "type": "multi_field",
+              "type": "string",
               "fields": {
                 "raw" : {
                   "type": "string",
@@ -23,7 +23,7 @@ curl -XPUT http://localhost:9200/skynet_trans_log_v2 -d '{
               }
             },
             "toUuid" : {
-              "type": "multi_field",
+              "type": "string",
               "fields": {
                 "raw" : {
                   "type": "string",
