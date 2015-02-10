@@ -1,8 +1,8 @@
 #!/bin/bash
 
 source ./utils.sh
-OLD_VERSION="1"
-NEW_VERSION="2"
+OLD_VERSION="2"
+NEW_VERSION="3"
 
 curl -XPUT "http://localhost:9200/meshblu_events_300_v${NEW_VERSION}" -d '{
   "mappings": {
@@ -34,6 +34,10 @@ curl -XPUT "http://localhost:9200/meshblu_events_300_v${NEW_VERSION}" -d '{
               "index": "not_analyzed"
             }
           }
+        },
+        "payload" : {
+          "type": "object",
+          "enabled": false
         }
       }
     }
