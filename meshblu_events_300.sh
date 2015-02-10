@@ -1,11 +1,12 @@
 #!/bin/bash
 
 source ./utils.sh
-VERSION="1"
+OLD_VERSION="1"
+NEW_VERSION="2"
 
-curl -XPUT "http://localhost:9200/meshblu_events_300_v${VERSION}" -d '{
+curl -XPUT "http://localhost:9200/meshblu_events_300_v${NEW_VERSION}" -d '{
   "mappings": {
-    "events": {
+    "event": {
       "properties": {
         "topic" : {
           "type": "string",
@@ -39,4 +40,4 @@ curl -XPUT "http://localhost:9200/meshblu_events_300_v${VERSION}" -d '{
   }
 }'
 
-create_alias 300 $VERSION
+move_alias 300 $OLD_VERSION $NEW_VERSION
