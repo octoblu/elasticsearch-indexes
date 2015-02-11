@@ -10,7 +10,7 @@ curl -XPUT "http://localhost:9200/meshblu_events_300_v${NEW_VERSION}" -d '{
       "dynamic": false,
       "properties": {
         "timestamp": {
-          "type": "basic_date_time"
+          "type": "date"
         },
         "topic" : {
           "type": "string",
