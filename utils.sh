@@ -2,7 +2,13 @@ function create_index() {
   event=$1
   version=$2
   # not a whole lot of magic
-  curl -XPOST "http://localhost:9200/meshblu_events_${event}_v${version}"
+  curl -XPOST "http://localhost:9200/meshblu_events_${event}_v${version}" -d '{
+    "mappings": {
+      "event": {
+        "dynamic": false
+      }
+    }
+  }'
 }
 
 function create_alias() {

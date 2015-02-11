@@ -7,6 +7,7 @@ NEW_VERSION=$2
 curl -XPUT "http://localhost:9200/meshblu_events_300_v${NEW_VERSION}" -d '{
   "mappings": {
     "event": {
+      "dynamic": false,
       "properties": {
         "topic" : {
           "type": "string",
@@ -34,10 +35,6 @@ curl -XPUT "http://localhost:9200/meshblu_events_300_v${NEW_VERSION}" -d '{
               "index": "not_analyzed"
             }
           }
-        },
-        "payload" : {
-          "type": "object",
-          "enabled": false
         }
       }
     }
