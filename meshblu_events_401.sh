@@ -9,6 +9,9 @@ curl -XPUT "http://localhost:9200/meshblu_events_401_v${NEW_VERSION}" -d '{
     "event": {
       "dynamic": false,
       "properties": {
+        "timestamp": {
+          "type": "date"
+        },
         "uuid" : {
           "type": "string",
           "fields": {
