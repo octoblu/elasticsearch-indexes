@@ -22,7 +22,7 @@ curl -XPUT "http://localhost:9200/meshblu_events_300_v${NEW_VERSION}" -d '{
           }
         },
         "from": {
-          "type": "nested",
+          "type": "object",
           "properties": {
             "ipAddress" : {
               "type": "string",
