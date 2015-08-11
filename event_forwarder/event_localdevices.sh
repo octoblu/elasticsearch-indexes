@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EVENT='event_devices'
+EVENT='event_localdevices'
 OLD_VERSION=$1
 NEW_VERSION=$2
 
