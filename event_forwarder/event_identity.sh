@@ -1,8 +1,7 @@
 #!/bin/bash
 
 EVENT='event_identity'
-OLD_VERSION=$1
-NEW_VERSION=$2
+NEW_VERSION=1
 
 curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
   "mappings": {

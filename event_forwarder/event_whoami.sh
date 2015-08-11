@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EVENT='event_claimdevice'
+EVENT='event_whoami'
 NEW_VERSION=1
 
 curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
@@ -11,15 +11,6 @@ curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
         "enabled": true
       },
       "properties": {
-        "fromIp" : {
-          "type": "string",
-          "fields": {
-            "raw" : {
-              "type": "string",
-              "index": "not_analyzed"
-            }
-          }
-        },
         "fromUuid" : {
           "type": "string",
           "fields": {
