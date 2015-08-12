@@ -1,9 +1,15 @@
 #!/bin/bash
 
-EVENTS=(event_claimdevice event_data event_devices event_generatetoken event_getpublickey event_identity event_localdevices event_message event_register event_resettoken event_revoketoken event_subscribe event_unclaimeddevices event_undefined event_unregister event_unsubscribe event_update event_whoami)
+DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+FILES=($(ls $DIR/event_*.sh))
+EVENTS=()
 
-if [ -n "$1" ]; then
-  EVENTS=($1)
+for FILE in "${FILES[@]}"; do
+  EVENTS+=($(basename $FILE | sed -e 's/\.sh//g'))
+done
+
+if [ $# -ne 0 ]; then
+  EVENTS=($@)
 fi
 
 for EVENT in "${EVENTS[@]}"; do
