@@ -19,6 +19,20 @@ curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
               "index": "not_analyzed"
             }
           }
+        },
+        "request": {
+          "type": "object",
+          "properties": {
+            "topic" : {
+              "type": "string",
+              "fields": {
+                "raw" : {
+                  "type": "string",
+                  "index": "not_analyzed"
+                }
+              }
+            }
+          }
         }
       }
     }
