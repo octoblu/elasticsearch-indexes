@@ -41,6 +41,15 @@ curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
                 }
               }
             },
+            "message" : {
+              "type": "string",
+              "fields": {
+                "raw" : {
+                  "type": "string",
+                  "index": "not_analyzed"
+                }
+              }
+            },
             "state" : {
               "type": "string",
               "fields": {
