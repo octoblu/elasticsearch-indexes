@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EVENT='flow_deploy_tracker'
+EVENT='device_status_flow'
 NEW_VERSION=1
 
 curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
@@ -15,6 +15,15 @@ curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
           "type": "object",
           "properties": {
             "action" : {
+              "type": "string",
+              "fields": {
+                "raw" : {
+                  "type": "string",
+                  "index": "not_analyzed"
+                }
+              }
+            },
+            "deploymentUuid" : {
               "type": "string",
               "fields": {
                 "raw" : {

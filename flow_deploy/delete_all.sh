@@ -1,7 +1,7 @@
 #!/bin/bash
 
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-FILES=($(ls $DIR/event_*.sh))
+FILES=($(ls $DIR/device_*.sh))
 EVENTS=()
 
 for FILE in "${FILES[@]}"; do
