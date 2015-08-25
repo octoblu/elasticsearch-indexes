@@ -14,7 +14,7 @@ curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
         "payload": {
           "type": "object",
           "properties": {
-            "action" : {
+            "application" : {
               "type": "string",
               "fields": {
                 "raw" : {
@@ -41,7 +41,25 @@ curl -XPUT "http://localhost:9200/${EVENT}_v${NEW_VERSION}" -d '{
                 }
               }
             },
+            "state" : {
+              "type": "string",
+              "fields": {
+                "raw" : {
+                  "type": "string",
+                  "index": "not_analyzed"
+                }
+              }
+            },
             "userUuid" : {
+              "type": "string",
+              "fields": {
+                "raw" : {
+                  "type": "string",
+                  "index": "not_analyzed"
+                }
+              }
+            },
+            "workflow" : {
               "type": "string",
               "fields": {
                 "raw" : {
