@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EVENT='device_status_flow'
+EVENT='device_status_gateblu'
 NEW_VERSION=1
 PORT=${PORT:-9200}
 
@@ -24,7 +24,7 @@ curl -XPUT "http://localhost:${PORT}/${EVENT}_v${NEW_VERSION}" -d '{
                 }
               }
             },
-            "deploymentUuid" : {
+            "deviceUuid" : {
               "type": "string",
               "fields": {
                 "raw" : {
@@ -33,7 +33,7 @@ curl -XPUT "http://localhost:${PORT}/${EVENT}_v${NEW_VERSION}" -d '{
                 }
               }
             },
-            "flowUuid" : {
+            "gatebluUuid" : {
               "type": "string",
               "fields": {
                 "raw" : {
@@ -52,15 +52,6 @@ curl -XPUT "http://localhost:${PORT}/${EVENT}_v${NEW_VERSION}" -d '{
               }
             },
             "state" : {
-              "type": "string",
-              "fields": {
-                "raw" : {
-                  "type": "string",
-                  "index": "not_analyzed"
-                }
-              }
-            },
-            "userUuid" : {
               "type": "string",
               "fields": {
                 "raw" : {
