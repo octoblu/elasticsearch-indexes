@@ -9,7 +9,8 @@ curl -XPUT "http://localhost:${PORT}/${EVENT}_v${NEW_VERSION}" -d '{
     "event": {
       "dynamic": false,
       "_timestamp": {
-        "enabled": true
+        "enabled": true,
+        "store": true
       },
       "properties": {
         "payload": {
