@@ -3,6 +3,7 @@
 DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
 FILES=($(ls $DIR/device_*.sh))
 EVENTS=()
+PORT=${PORT:-9200}
 
 for FILE in "${FILES[@]}"; do
   EVENTS+=($(basename $FILE | sed -e 's/\.sh//g'))
@@ -26,7 +27,7 @@ for EVENT in "${EVENTS[@]}"; do
   }
 EOF
 
-  curl -X POST http://localhost:9200/_aliases -d "$alias_command"
-  curl -X DELETE "http://localhost:9200/${EVENT}_v1"
-  curl -X DELETE "http://localhost:9200/${EVENT}"
+  curl -X POST http://localhost:${PORT}/_aliases -d "$alias_command"
+  curl -X DELETE "http://localhost:${PORT}/${EVENT}_v1"
+  curl -X DELETE "http://localhost:${PORT}/${EVENT}"
 done

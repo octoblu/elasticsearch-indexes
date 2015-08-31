@@ -1,6 +1,6 @@
 #!/bin/bash
 
-EVENT='device_status_gateblu'
+EVENT='device_status_gateblu_forever'
 NEW_VERSION=1
 PORT=${PORT:-9200}
 
