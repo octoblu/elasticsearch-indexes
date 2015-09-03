@@ -25,6 +25,15 @@ curl -XPUT "http://localhost:${PORT}/${EVENT}_v${NEW_VERSION}" -d '{
                 }
               }
             },
+            "deploymentUuid" : {
+              "type": "string",
+              "fields": {
+                "raw" : {
+                  "type": "string",
+                  "index": "not_analyzed"
+                }
+              }
+            },
             "deviceUuid" : {
               "type": "string",
               "fields": {
