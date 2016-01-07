@@ -1,10 +1,10 @@
 #!/bin/bash
 
+ES_HOST='https://search-meshlastic-jzohajyndq6bowz24ic2jnf3vu.us-west-2.es.amazonaws.com'
 EVENT='device_status_gateblu'
 NEW_VERSION=1
-PORT=${PORT:-9200}
 
-curl -XPUT "http://localhost:${PORT}/${EVENT}_v${NEW_VERSION}" -d '{
+curl -XPUT "${ES_HOST}/${EVENT}_v${NEW_VERSION}" -d '{
   "mappings": {
     "event": {
       "dynamic": false,
@@ -16,6 +16,9 @@ curl -XPUT "http://localhost:${PORT}/${EVENT}_v${NEW_VERSION}" -d '{
         "payload": {
           "type": "object",
           "properties": {
+            "date": {
+              "type": "date"
+            },
             "application" : {
               "type": "string",
               "fields": {
@@ -98,4 +101,4 @@ read -r -d '' alias_command <<EOF
     ]
   }
 EOF
-curl -XPOST http://localhost:${PORT}/_aliases -d "$alias_command"
+curl -XPOST "${ES_HOST}/_aliases" -d "$alias_command"

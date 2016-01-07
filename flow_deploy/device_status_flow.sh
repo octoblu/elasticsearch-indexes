@@ -16,6 +16,9 @@ curl -XPUT "${ES_HOST}/${EVENT}_v${NEW_VERSION}" -d '{
         "payload": {
           "type": "object",
           "properties": {
+            "date": {
+              "type": "date"
+            },
             "application" : {
               "type": "string",
               "fields": {
