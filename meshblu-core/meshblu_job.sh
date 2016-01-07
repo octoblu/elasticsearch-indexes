@@ -1,9 +1,10 @@
 #!/bin/bash
 
+ES_HOST='https://search-meshlastic-jzohajyndq6bowz24ic2jnf3vu.us-west-2.es.amazonaws.com'
 INDEX='meshblu_job'
 NEW_VERSION=1
 
-curl -XPUT "http://localhost:9200/${INDEX}_v${NEW_VERSION}" -d '{
+curl -XPUT "${ES_HOST}/${INDEX}_v${NEW_VERSION}" -d '{
   "mappings": {
     "dispatcher": {
       "dynamic": false,
@@ -12,6 +13,9 @@ curl -XPUT "http://localhost:9200/${INDEX}_v${NEW_VERSION}" -d '{
         "store": true
       },
       "properties": {
+         "date": {
+           "type": "date"
+         },
          "elapsedTime": {
             "type": "long"
          },
@@ -118,4 +122,4 @@ read -r -d '' alias_command <<EOF
     ]
   }
 EOF
-curl -XPOST http://localhost:9200/_aliases -d "$alias_command"
+curl -XPOST "${ES_HOST}/_aliases" -d "$alias_command"
