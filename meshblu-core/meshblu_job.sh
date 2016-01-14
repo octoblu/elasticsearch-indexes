@@ -57,6 +57,15 @@ curl -XPUT "${ES_HOST}/_template/meshblu_job" -d '{
                           }
                         }
                      },
+                     "taskName": {
+                        "type": "string",
+                        "fields": {
+                          "raw" : {
+                            "type": "string",
+                            "index": "not_analyzed"
+                          }
+                        }
+                     },
                      "responseId": {
                         "type": "string",
                         "fields": {
