@@ -95,6 +95,9 @@ curl -XPUT "${ES_HOST}/_template/meshblu_job" -d '{
                      "code": {
                         "type": "long"
                      },
+                     "success": {
+                        "type": "boolean"
+                     },
                      "responseId": {
                         "type": "string",
                         "fields": {
