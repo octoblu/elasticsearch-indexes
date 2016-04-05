@@ -13,110 +13,132 @@ curl -XPUT "${ES_HOST}/_template/metric" -d '{
         "store": true
       },
       "properties": {
-         "date": {
-           "type": "date"
-         },
-         "elapsedTime": {
-            "type": "long"
-         },
-         "request": {
-            "properties": {
-               "metadata": {
+        "date": {
+          "type": "date"
+        },
+        "elapsedTime": {
+          "type": "long"
+        },
+        "request": {
+          "properties": {
+            "metadata": {
+              "properties": {
+                "auth": {
                   "properties": {
-                     "auth": {
-                        "properties": {
-                           "uuid": {
-                              "type": "string",
-                              "fields": {
-                                "raw" : {
-                                  "type": "string",
-                                  "index": "not_analyzed"
-                                }
-                              }
-                           }
+                    "uuid": {
+                      "type": "string",
+                      "fields": {
+                        "raw" : {
+                          "type": "string",
+                          "index": "not_analyzed"
                         }
-                     },
-                     "fromUuid": {
-                        "type": "string",
-                        "fields": {
-                          "raw" : {
-                            "type": "string",
-                            "index": "not_analyzed"
-                          }
-                        }
-                     },
-                     "jobType": {
-                        "type": "string",
-                        "fields": {
-                          "raw" : {
-                            "type": "string",
-                            "index": "not_analyzed"
-                          }
-                        }
-                     },
-                     "taskName": {
-                        "type": "string",
-                        "fields": {
-                          "raw" : {
-                            "type": "string",
-                            "index": "not_analyzed"
-                          }
-                        }
-                     },
-                     "responseId": {
-                        "type": "string",
-                        "fields": {
-                          "raw" : {
-                            "type": "string",
-                            "index": "not_analyzed"
-                          }
-                        }
-                     },
-                     "toUuid": {
-                        "type": "string",
-                        "fields": {
-                          "raw" : {
-                            "type": "string",
-                            "index": "not_analyzed"
-                          }
-                        }
-                     }
+                      }
+                    }
                   }
-               }
+                },
+                "fromUuid": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
+                "jobType": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
+                "taskName": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
+                "workerName": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
+                "responseId": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
+                "toUuid": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                }
+              }
             }
-         },
-         "response": {
-            "properties": {
-               "metadata": {
+          }
+        },
+        "response": {
+          "properties": {
+            "metadata": {
+              "properties": {
+                "code": {
+                  "type": "long"
+                },
+                "success": {
+                  "type": "boolean"
+                },
+                "responseId": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
+                "status": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
+                "error": {
                   "properties": {
-                     "code": {
-                        "type": "long"
-                     },
-                     "success": {
-                        "type": "boolean"
-                     },
-                     "responseId": {
-                        "type": "string",
-                        "fields": {
-                          "raw" : {
-                            "type": "string",
-                            "index": "not_analyzed"
-                          }
+                    "message": {
+                      "type": "string",
+                      "fields": {
+                        "raw" : {
+                          "type": "string",
+                          "index": "not_analyzed"
                         }
-                     },
-                     "status": {
-                        "type": "string",
-                        "fields": {
-                          "raw" : {
-                            "type": "string",
-                            "index": "not_analyzed"
-                          }
-                        }
-                     }
+                      }
+                    }
                   }
-               }
+                }
+              }
             }
-         }
+          }
+        }
       }
     }
   }
