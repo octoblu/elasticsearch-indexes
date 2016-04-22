@@ -89,6 +89,38 @@ curl -XPUT "${ES_HOST}/_template/metric" -d '{
                       "index": "not_analyzed"
                     }
                   }
+                },
+                "route": {
+                  "type": "nested",
+                  "properties": {
+                    "from": {
+                      "type": "string",
+                      "fields": {
+                        "raw" : {
+                          "type": "string",
+                          "index": "not_analyzed"
+                        }
+                      }
+                    },
+                    "to": {
+                      "type": "string",
+                      "fields": {
+                        "raw" : {
+                          "type": "string",
+                          "index": "not_analyzed"
+                        }
+                      }
+                    },
+                    "type": {
+                      "type": "string",
+                      "fields": {
+                        "raw" : {
+                          "type": "string",
+                          "index": "not_analyzed"
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
