@@ -99,4 +99,4 @@ read -r -d '' alias_command <<EOF
     ]
   }
 EOF
-curl -XPOST "${ES_HOST}/_aliases" -d "$alias_command"
+curl -XPOST "${BASE_URL}/_aliases" -d "$alias_command"
