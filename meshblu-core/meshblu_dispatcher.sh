@@ -1,10 +1,11 @@
 #!/bin/bash
 
-ES_HOST='https://search-meshlastic-jzohajyndq6bowz24ic2jnf3vu.us-west-2.es.amazonaws.com'
+ELASTIC_PORT=${ELASTIC_PORT:-9200}
+BASE_URL=${BASE_URL:-http://localhost:${ELASTIC_PORT}}
 INDEX='meshblu_dispatcher'
 NEW_VERSION=1
 
-curl -XPUT "${ES_HOST}/${INDEX}_v${NEW_VERSION}" -d '{
+curl -XPUT "${BASE_URL}/${INDEX}_v${NEW_VERSION}" -d '{
   "mappings": {
     "dispatcher": {
       "dynamic": false,

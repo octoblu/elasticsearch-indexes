@@ -1,18 +1,24 @@
 #!/bin/bash
 
-ES_HOST='https://search-meshlastic-jzohajyndq6bowz24ic2jnf3vu.us-west-2.es.amazonaws.com'
+ELASTIC_PORT=${ELASTIC_PORT:-9200}
+BASE_URL=${BASE_URL:-http://localhost:${ELASTIC_PORT}}
 
-curl -XPUT "${ES_HOST}/_template/metric" -d '{
+curl -XPUT "${BASE_URL}/_template/metric" -d '{
   "template": "metric*",
   "order": 1,
   "mappings": {
     "_default_": {
       "dynamic": false,
-      "_timestamp": {
-        "enabled": true,
-        "store": true
-      },
       "properties": {
+        "type": {
+          "type": "string",
+          "fields": {
+            "raw": {
+              "type": "string",
+              "index": "not_analyzed"
+            }
+          }
+        },
         "date": {
           "type": "date"
         },

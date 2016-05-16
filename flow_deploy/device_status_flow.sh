@@ -1,17 +1,15 @@
 #!/bin/bash
 
-ES_HOST='https://search-meshlastic-jzohajyndq6bowz24ic2jnf3vu.us-west-2.es.amazonaws.com'
+ELASTIC_PORT=${ELASTIC_PORT:-9200}
+BASE_URL=${BASE_URL:-http://localhost:${ELASTIC_PORT}}
+
 EVENT='device_status_flow'
 NEW_VERSION=1
 
-curl -XPUT "${ES_HOST}/${EVENT}_v${NEW_VERSION}" -d '{
+curl -XPUT "${BASE_URL}/${EVENT}_v${NEW_VERSION}" -d '{
   "mappings": {
     "event": {
       "dynamic": false,
-      "_timestamp": {
-        "enabled": true,
-        "store": true
-      },
       "properties": {
         "payload": {
           "type": "object",

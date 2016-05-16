@@ -1,8 +1,9 @@
 #!/bin/bash
 
-ES_HOST='https://search-meshlastic-jzohajyndq6bowz24ic2jnf3vu.us-west-2.es.amazonaws.com'
+ELASTIC_PORT=${ELASTIC_PORT:-9200}
+BASE_URL=${BASE_URL:-http://localhost:${ELASTIC_PORT}}
 
-curl -XPUT "${ES_HOST}/_template/meshblu_job" -d '{
+curl -XPUT "${BASE_URL}/_template/meshblu_job" -d '{
   "template": "meshblu_job*",
   "order": 1,
   "aliases": {
