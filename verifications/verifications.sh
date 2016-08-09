@@ -49,6 +49,28 @@ curl -XPUT "${BASE_URL}/_template/verification" -d '{
               "type": "date"
             }
           }
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "error": {
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "long"
+                },
+                "message": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
