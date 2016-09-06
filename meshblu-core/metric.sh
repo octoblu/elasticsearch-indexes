@@ -36,6 +36,12 @@ curl -XPUT "${BASE_URL}/_template/metric" -d '{
         },
         "request": {
           "properties": {
+            "lagTime": {
+              "type": "long"
+            },
+            "rawDataSize": {
+              "type": "long"
+            },
             "metadata": {
               "properties": {
                 "auth": {
@@ -143,6 +149,12 @@ curl -XPUT "${BASE_URL}/_template/metric" -d '{
         },
         "response": {
           "properties": {
+            "lagTime": {
+              "type": "long"
+            },
+            "rawDataSize": {
+              "type": "long"
+            },
             "metadata": {
               "properties": {
                 "code": {
