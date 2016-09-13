@@ -1,21 +1,22 @@
 #!/bin/bash
 
+ELASTIC_PORT=${ELASTIC_PORT:-9200}
+BASE_URL=${BASE_URL:-http://localhost:${ELASTIC_PORT}}
+
 EVENT='device_status_flow'
 NEW_VERSION=1
-PORT=${PORT:-9200}
 
-curl -XPUT "http://localhost:${PORT}/${EVENT}_v${NEW_VERSION}" -d '{
+curl -XPUT "${BASE_URL}/${EVENT}_v${NEW_VERSION}" -d '{
   "mappings": {
     "event": {
       "dynamic": false,
-      "_timestamp": {
-        "enabled": true,
-        "store": true
-      },
       "properties": {
         "payload": {
           "type": "object",
           "properties": {
+            "date": {
+              "type": "date"
+            },
             "application" : {
               "type": "string",
               "fields": {
@@ -98,4 +99,4 @@ read -r -d '' alias_command <<EOF
     ]
   }
 EOF
-curl -XPOST http://localhost:${PORT}/_aliases -d "$alias_command"
+curl -XPOST "${BASE_URL}/_aliases" -d "$alias_command"
