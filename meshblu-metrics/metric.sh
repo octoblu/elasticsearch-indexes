@@ -163,6 +163,9 @@ curl -XPUT "${BASE_URL}/_template/metric" -d '{
                 "success": {
                   "type": "boolean"
                 },
+                "maxMessageCount": {
+                  "type": "long"
+                },
                 "responseId": {
                   "type": "string",
                   "fields": {
