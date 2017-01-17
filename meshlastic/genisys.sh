@@ -50,8 +50,46 @@ curl -XPUT "${BASE_URL}/_template/genisys-room-state" -d '{
                   "index": "not_analyzed"
                 }
               }
+            },
+            "peopleInRoom": {
+              "type": "nested",
+              "properties": {
+                "userUuid": {
+                  "type": "string",
+                  "index": "not_analyzed"
+                }
+              }
             }
           }
+        }
+      }
+    }
+  }
+}'
+
+curl -XPUT "${BASE_URL}/_template/genisys-meetings" -d '{
+  "template": "genisys-meetings*",
+  "order": 1,
+  "mappings": {
+    "_default_": {
+      "dynamic": false,
+      "properties": {
+        "meetingId": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "roomId": {
+          "type": "string",
+          "index": "not_analyzed"
+        },
+        "startTime": {
+          "type": "date"
+        },
+        "endTime": {
+          "type": "date"
+        },
+        "duration": {
+          "type": "long"
         }
       }
     }

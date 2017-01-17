@@ -54,6 +54,15 @@ curl -XPUT "${BASE_URL}/_template/metric" -d '{
                           "index": "not_analyzed"
                         }
                       }
+                    },
+                    "as": {
+                      "type": "string",
+                      "fields": {
+                        "raw" : {
+                          "type": "string",
+                          "index": "not_analyzed"
+                        }
+                      }
                     }
                   }
                 },
