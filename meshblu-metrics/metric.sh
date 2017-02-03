@@ -120,6 +120,15 @@ curl -XPUT "${BASE_URL}/_template/metric" -d '{
                     }
                   }
                 },
+                "serviceName": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
                 "route": {
                   "type": "nested",
                   "properties": {
