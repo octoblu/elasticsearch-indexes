@@ -69,6 +69,29 @@ curl -XPUT "${BASE_URL}/_template/verification" -d '{
                   }
                 }
               }
+            },
+            "stats": {
+              "type": "object",
+              "properties": {
+                "operation": {
+                  "type": "string",
+                  "fields": {
+                    "raw" : {
+                      "type": "string",
+                      "index": "not_analyzed"
+                    }
+                  }
+                },
+                "startTime": {
+                  "type": "date"
+                },
+                "endTime": {
+                  "type": "date"
+                },
+                "duration": {
+                  "type": "long"
+                }
+              }
             }
           }
         }
